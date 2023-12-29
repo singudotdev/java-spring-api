@@ -1,17 +1,16 @@
-package com.r4w.api.domains.responses;
+package com.r4w.api.domains.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class LoginResponse {
+@NoArgsConstructor
+public class AuthenticationRequest {
 
-    private String token;
-
+    String password;
+    private String email;
 }

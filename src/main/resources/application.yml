@@ -1,28 +1,23 @@
-app:
-  name: api
-
 spring:
-
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
-
-
-
   jpa:
     hibernate:
       ddl-auto: create-drop
-
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
-
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-
-jwt:
-  secret: "5f1ce3e27a9701fc76b4cfe6224173169c70fc2223c65f293defdcb7e70cfeaa843c334f690d947c4abd93e5464623d25f67a795c5f4840ba5614bcfd2a55a375c0a9662c5339afaa05bb5784e615ae6a5b0d3ae8f287d77f3a6fa5c14dcb16f3382acf59ea92b89a96e7ecc6e"
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
