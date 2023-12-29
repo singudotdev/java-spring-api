@@ -1,3 +1,3 @@
-# java-api-swagger-security
+# java-spring-api
 
-A java API with Spring Boot 3, Spring Security 6 and Swagger 3
+A java API with Spring Boot 3, Spring Security 6 and Swagger/OpenAPI 3
