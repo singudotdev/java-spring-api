@@ -21,8 +21,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 title = "OpenApi specification - SINGU",
                 version = "1.0",
                 license = @License(
-                        name = "Licence name",
-                        url = "https://some-url.com"
+                        name = "MIT License",
+                        url = "https://mit-license.org/"
                 ),
                 termsOfService = "Terms of service"
         ),
