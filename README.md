@@ -2,4 +2,14 @@
 ## The ultimate template for starting a Java API with Spring
 
 
-This is an API that uses Spring Boot 3, Spring Security 6, Swagger/OpenAI 3 and Logback/Logstash to centralice logs.
+This is an API that uses Spr
+
+How to deploy with Docker Compose:
+```sh
+docker compose up -d
+```
+
+To stop the deploy:
+```sh
+docker compose down
+```
