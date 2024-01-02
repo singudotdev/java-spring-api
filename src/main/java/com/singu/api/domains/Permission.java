@@ -3,6 +3,7 @@ package com.singu.api.domains;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+
 @RequiredArgsConstructor
 public enum Permission {
 
