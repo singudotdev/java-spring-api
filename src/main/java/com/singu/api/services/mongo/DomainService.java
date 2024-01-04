@@ -20,4 +20,8 @@ public class DomainService {
     public List<Domain> getAll() {
         return repository.findAll();
     }
+
+    public Domain create(Domain domain) {
+        return repository.save(domain);
+    }
 }
