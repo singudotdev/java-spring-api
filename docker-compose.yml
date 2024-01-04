@@ -11,12 +11,35 @@ services:
     networks:
       - java-spring-api
 
+  mongodb:
+    image: mongo:4.4.26
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: changeme
+      MONGO_INITDB_DATABASE: api
+    networks:
+      - java-spring-api
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: changeme
+      ME_CONFIG_MONGODB_URL: mongodb://root:changeme@mongodb:27017/
+    networks:
+      - java-spring-api
+
   spring-app:
     build: .
     ports:
       - "8080:8080"
     depends_on:
       - postgres
+      - mongodb
     networks:
       - java-spring-api
 
