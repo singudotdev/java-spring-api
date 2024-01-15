@@ -3,7 +3,7 @@
 
 
 This is an API that uses Spring Boot 3, Spring Security 6, Swagger/OpenAPI 3 and Logstash.
-Will add elasticsearch in the future in order to use for SQL and NoSQL.
+Will add elasticsearch in the future in roder to use PostgreSQL, Elasticsearch and MongoDB.
 
 How to deploy with Docker Compose:
 ```sh
