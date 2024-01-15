@@ -2,10 +2,12 @@ package com.singu.api.controllers;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
+@Slf4j
 @RestController
 @Tag(name = "Administration")
 @RequestMapping("/api/v1/admin")
@@ -15,6 +17,8 @@ public class AdminController {
     @GetMapping
     @PreAuthorize("hasAuthority('admin:read')")
     public String get() {
+        log.info("This is an info message");
+        log.error("This is an error message");
         return "GET:: admin controller";
     }
 

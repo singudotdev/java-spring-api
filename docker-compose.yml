@@ -45,3 +45,4 @@ services:
 
 networks:
   java-spring-api:
+    driver: bridge
