@@ -3,12 +3,10 @@ package com.singu.api.mappers;
 import com.singu.api.domains.mongo.Domain;
 import com.singu.api.domains.requests.DomainRequest;
 import com.singu.api.domains.responses.DomainResponse;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 public class DomainMapper {
 
-    private DomainMapper(){
+    private DomainMapper() {
 
     }
 

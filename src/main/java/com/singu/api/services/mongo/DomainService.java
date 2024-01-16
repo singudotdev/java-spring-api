@@ -5,17 +5,17 @@ import com.singu.api.domains.requests.DomainRequest;
 import com.singu.api.domains.responses.DomainResponse;
 import com.singu.api.mappers.DomainMapper;
 import com.singu.api.repositories.mongo.DomainRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class DomainService {
 
-    @Autowired
-    private DomainRepository repository;
+    private final DomainRepository repository;
 
     public Domain getByName(String name) {
         return repository.findByName(name);
