@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User implements UserDetails, Serializable {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue
@@ -33,7 +32,7 @@ public class User implements UserDetails, Serializable {
     private Role role;
 
     @OneToMany(mappedBy = "user")
-    private List<Token> tokens;
+    private transient List<Token> tokens;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
