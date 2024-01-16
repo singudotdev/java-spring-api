@@ -1,6 +1,8 @@
 package com.singu.api.controllers.mongo;
 
 import com.singu.api.domains.mongo.Domain;
+import com.singu.api.domains.requests.DomainRequest;
+import com.singu.api.domains.responses.DomainResponse;
 import com.singu.api.services.mongo.DomainService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +27,13 @@ public class DomainController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Domain>> getAll(){
+    public ResponseEntity<List<DomainResponse>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
     @PostMapping
-    public ResponseEntity<Domain> create(@RequestBody Domain domain){
-        return ResponseEntity.ok(service.create(domain));
+    public ResponseEntity<DomainResponse> create(@RequestBody DomainRequest request){
+        return ResponseEntity.ok(service.create(request));
     }
 
 }
