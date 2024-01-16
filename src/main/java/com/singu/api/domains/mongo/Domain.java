@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document("domains")
+@Document(collection = "domains")
 public class Domain {
 
     @Id

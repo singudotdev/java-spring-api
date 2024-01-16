@@ -20,6 +20,8 @@ spring:
       database: api
       username: root
       password: changeme
+      authentication-database: admin
+      authentication-mechanism: SCRAM-SHA-1
 
 application:
   security:
