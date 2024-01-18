@@ -33,10 +33,10 @@ services:
     networks:
       - java-spring-api
 
-  spring-app:
+  app:
     build: .
     ports:
-      - "8080:8080"
+      - "9001:9001"
     depends_on:
       - postgres
       - mongodb

@@ -1,6 +1,13 @@
 package com.singu.api.configurations;
 
+import com.singu.api.domains.Role;
+import com.singu.api.domains.User;
+import com.singu.api.domains.requests.RegisterRequest;
+import com.singu.api.repositories.UserRepository;
 import com.singu.api.security.JwtAuthenticationFilter;
+import com.singu.api.services.AuthenticationService;
+import com.singu.api.services.UserService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +17,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
@@ -41,6 +49,8 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -69,4 +79,16 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+    @PostConstruct
+    public void createDefaultAdminUser() {
+        userRepository.save(User.builder()
+                .firstname("Admin")
+                .lastname("Admin")
+                .email("admin@admin.com")
+                .password(passwordEncoder.encode("admin"))
+                .role(ADMIN)
+                .build());
+    }
+
 }
