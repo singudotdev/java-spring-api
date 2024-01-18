@@ -45,5 +45,6 @@ services:
 
 networks:
   java-spring-api:
+    # noinspection ComposeUnknownKeys
     name: java-spring-api
     driver: bridge
