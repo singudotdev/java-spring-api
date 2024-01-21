@@ -18,7 +18,7 @@ public class AdminController {
     @PreAuthorize("hasAuthority('admin:read')")
     public String get() {
         log.info("This is an info message");
-        log.error("This is an error message");
+        log.error("This is an error message");adsadasds
         return "GET:: admin controller";
     }
 
