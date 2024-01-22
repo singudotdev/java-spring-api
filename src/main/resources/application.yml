@@ -1,6 +1,9 @@
 server:
   port: 9001
 
+api:
+  adminPassword: admin
+
 spring:
   datasource:
     url: jdbc:postgresql://postgres:5432/postgres

@@ -9,6 +9,7 @@ import com.singu.api.services.AuthenticationService;
 import com.singu.api.services.UserService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -44,13 +45,17 @@ public class SecurityConfig {
             "/configuration/security",
             "/swagger-ui/**",
             "/webjars/**",
-            "/swagger-ui.html"};
+            "/swagger-ui.html",
+            "/api/v1/auth/**"};
     private static final String MANAGEMENT_ENDPOINT = "/api/v1/management/**";
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    @Value(value = "${api.adminPassword}")
+    private String userAdminPassword;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -86,7 +91,7 @@ public class SecurityConfig {
                 .firstname("Admin")
                 .lastname("Admin")
                 .email("admin@admin.com")
-                .password(passwordEncoder.encode("admin"))
+                .password(passwordEncoder.encode(userAdminPassword))
                 .role(ADMIN)
                 .build());
     }

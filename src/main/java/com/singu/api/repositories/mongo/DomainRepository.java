@@ -1,8 +1,8 @@
 package com.singu.api.repositories.mongo;
 
 import com.singu.api.domains.mongo.Domain;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 
