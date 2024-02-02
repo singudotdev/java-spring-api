@@ -25,7 +25,6 @@ public class ManagementController {
                             responseCode = "403"
                     )
             }
-
     )
     @GetMapping
     public String get() {
