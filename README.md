@@ -10,7 +10,7 @@ How to deploy with Docker Compose:
 docker compose up -d
 ```
 
-To stop the deploy:
+To stop the deployment:
 ```sh
 docker compose down
 ```
