@@ -10,13 +10,15 @@ import java.util.Optional;
 
 
 public class ApplicationAuditAware implements AuditorAware<Integer> {
+
     @Override
     public Optional<Integer> getCurrentAuditor() {
         Authentication authentication =
                 SecurityContextHolder
                         .getContext()
                         .getAuthentication();
-        if (authentication == null ||
+        if (
+                authentication == null ||
                 !authentication.isAuthenticated() ||
                 authentication instanceof AnonymousAuthenticationToken
         ) {
@@ -26,4 +28,5 @@ public class ApplicationAuditAware implements AuditorAware<Integer> {
         User userPrincipal = (User) authentication.getPrincipal();
         return Optional.ofNullable(userPrincipal.getId());
     }
+
 }

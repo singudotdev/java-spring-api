@@ -17,4 +17,5 @@ public enum Permission {
     MANAGER_DELETE("management:delete");
 
     private final String permissions;
+
 }

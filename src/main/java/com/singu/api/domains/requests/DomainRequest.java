@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 public class DomainRequest {
 
     private String id;
-
     private String name;
 
 }

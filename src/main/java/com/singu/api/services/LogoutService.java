@@ -1,5 +1,6 @@
 package com.singu.api.services;
 
+import com.singu.api.domains.Token;
 import com.singu.api.repositories.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,23 +18,23 @@ public class LogoutService implements LogoutHandler {
     private final TokenRepository tokenRepository;
 
     @Override
-    public void logout(
-            HttpServletRequest request,
-            HttpServletResponse response,
-            Authentication authentication
-    ) {
+    public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
+
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return;
         }
+
         jwt = authHeader.substring(7);
-        var storedToken = tokenRepository.findByJwt(jwt)
-                .orElse(null);
+        Token storedToken = tokenRepository.findByJwt(jwt).orElse(null);
+
         if (storedToken != null) {
             storedToken.setExpired(true);
             storedToken.setRevoked(true);
+
             tokenRepository.save(storedToken);
+
             SecurityContextHolder.clearContext();
         }
     }

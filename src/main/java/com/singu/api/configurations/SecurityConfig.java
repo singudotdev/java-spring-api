@@ -54,7 +54,7 @@ public class SecurityConfig {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Value(value = "${api.adminPassword}")
+    @Value(value = "${api.admin.password}")
     private String userAdminPassword;
 
     @Bean

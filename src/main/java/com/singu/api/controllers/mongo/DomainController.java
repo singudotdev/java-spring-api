@@ -21,9 +21,7 @@ public class DomainController {
 
     @GetMapping("/{name}")
     public ResponseEntity<Domain> getByName(@RequestParam("name") String name) {
-
         return ResponseEntity.ok(service.getByName(name));
-
     }
 
     @GetMapping

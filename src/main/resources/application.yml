@@ -2,7 +2,8 @@ server:
   port: 9001
 
 api:
-  adminPassword: admin
+  admin:
+    password: admin
 
 spring:
   datasource:
