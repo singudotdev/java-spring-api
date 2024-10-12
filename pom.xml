@@ -9,7 +9,7 @@
         <version>3.2.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.singu</groupId>
+    <groupId>dev.singu</groupId>
     <artifactId>api</artifactId>
     <version>1.0</version>
     <name>Java Spring API</name>
